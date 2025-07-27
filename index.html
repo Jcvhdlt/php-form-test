@@ -9,7 +9,78 @@
 </head>
 
 <body>
-    <h1>Hola</h1>
+    <h1>Formulario de información</h1>
+
+    <form action="form_checker.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend><strong>Datos personales</strong></legend>
+            <label for="name">Nombre:</label><br>
+            <input type="text" name="name" id="name" placeholder="Nombre" required><br><br>
+
+            <label for="firstsurname">Primer apellido:</label><br>
+            <input type="text" name="firstsurname" id="firstsurname" placeholder="Primer Apellido" required><br><br>
+
+            <label for="secondsurname">Segundo apellido:</label><br>
+            <input type="text" name="secondsurname" id="secondsurname" placeholder="Segundo Apellido"><br><br>
+
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" name="email" id="email" placeholder="Correo electrónico" required><br><br>
+
+            <label for="telefono">Teléfono:</label><br>
+            <input type="tel" name="telefono" id="telefono" placeholder="Teléfono"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Medidas corporales</strong></legend>
+            <label for="altura">Altura (cm):</label><br>
+            <input type="number" name="altura" id="altura" placeholder="Ej: 170"><br><br>
+
+            <label for="peso">Peso (kg):</label><br>
+            <input type="number" name="peso" id="peso" placeholder="Ej: 70"><br><br>
+
+            <label for="anchura_pecho">Anchura de pecho (cm):</label><br>
+            <input type="number" name="anchura_pecho" id="anchura_pecho"><br><br>
+
+            <label for="anchura_cintura">Anchura de cintura (cm):</label><br>
+            <input type="number" name="anchura_cintura" id="anchura_cintura"><br><br>
+
+            <label for="anchura_cadera">Anchura de cadera (cm):</label><br>
+            <input type="number" name="anchura_cadera" id="anchura_cadera"><br><br>
+
+            <label for="image_body">Foto del cuerpo:</label><br>
+            <input type="file" name="image_body" id="image_body" accept="image/*"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Dirección de envío</strong></legend>
+            <label for="direccion">Dirección:</label><br>
+            <input type="text" name="direccion" id="direccion"
+                placeholder="Calle, número, ciudad, código postal"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Comentarios adicionales</strong></legend>
+            <label for="comentarios">Comentarios:</label><br>
+            <textarea name="comentarios" id="comentarios" rows="4" cols="40"
+                placeholder="Escribe tus comentarios..."></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Método de pago</strong></legend>
+            <input type="radio" name="metodo_pago" id="paypal" value="Paypal">
+            <label for="paypal">Paypal</label><br>
+
+            <input type="radio" name="metodo_pago" id="transferencia" value="Transferencia">
+            <label for="transferencia">Transferencia</label><br>
+
+            <input type="radio" name="metodo_pago" id="contrareembolso" value="Contrareembolso">
+            <label for="contrareembolso">Contrareembolso</label><br><br>
+        </fieldset>
+
+        <button type="submit">Enviar formulario</button>
+        <button type="reset">Borrar campos</button>
+    </form>
+
 </body>
 
 </html>
