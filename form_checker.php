@@ -6,11 +6,12 @@ $datos_recibidos = []; // array para ir guardando toda la info
 // Verificar si el formulario fue enviado usando el método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    //Validacion del Nombre
-    if (isset($_POST["name"]) && !empty(trim($_POST["name"]))) {
-        $datos_recibidos["name"] = htmlspecialchars(trim($_POST["name"]));
-    } else {
+    // Validación del Nombre (obligatorio)
+    if (empty(trim($_POST["name"]))) {
+        $errores["name"] = "El nombre es obligatorio.";
         $datos_recibidos["name"] = "";
+    } else {
+        $datos_recibidos["name"] = htmlspecialchars(trim($_POST["name"]));
     }
 
 
@@ -65,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<li><strong>" . ucfirst(str_replace('_', ' ', $campo)) . ":</strong> " . $valor . "</li>";
         }
         echo "</ul>";
-
+        echo '<p><a href="index.html">Volver al formulario</a></p>'; // Enlace para volver
     } else {
         // Si hay errores, mostrar la lista de errores
         echo "<h1>Se encontraron los siguientes errores:</h1>";
@@ -78,7 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 } else {
-    echo "ERROR.";
+    echo "<h1>Error: método de acceso no permitido.</h1>";
+    echo '<p><a href="index.html">Volver al formulario</a></p>';
 }
 
 ?>
